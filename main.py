@@ -1,5 +1,6 @@
 import winclude as w
 from gpiozero import *
+from wmqtt import AwayInfo
 
 Device.pin_factory = w.wfactory.WFactory()
 

@@ -10,7 +10,7 @@ class WFactory(RPiGPIOFactory):
 
     def _to_gpio(self, spec):
         if w.isR(spec):
-            return super(RPiGPIOFactory, self)._to_gpio(w.p(spec))
+            return super(WFactory, self)._to_gpio(w.p(spec))
         elif spec in w.pinsAll:
             return spec
 
