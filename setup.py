@@ -5,17 +5,20 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wyliozero",
-    version="0.0.1",
+    version="0.0.4",
     author="Serban Razvan",
     author_email="razvan.serban@wyliodrin.com",
-    description="Wyliolab library",
+    description="Library for Wyliodrin Lab",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Wyliodrin/wyliozero",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 2",
+        "Intended Audience :: Education",
+        "Intended Audience :: Information Technology",
+        "Programming Language :: Python :: 2.7",
         "License :: OSI Approved :: BSD License",
         "Operating System :: Unix",
+        "Topic :: Education"
     ],
 )

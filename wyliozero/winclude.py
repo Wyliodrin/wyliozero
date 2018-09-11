@@ -8,7 +8,20 @@ import sys
 defaultFactory = RPiGPIOFactory()
 
 
-ard = PyMata("/dev/ttyS0", verbose=True)
+from serial.serialutil import SerialException
+serialTry = ["/dev/ttyS0", "/dev/ttyAMA0"]
+ard = None
+for tries in serialTry:
+    try:
+        ard = PyMata(tries, verbose=True)
+    except SerialException:
+        pass
+    else:
+        break
+
+if ard == None:
+    raise SerialException("No available serial found for Firmata")
+
 
 
 def excepthook(type, value, traceback):
