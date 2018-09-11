@@ -18,10 +18,6 @@ def excepthook(type, value, traceback):
 sys.excepthook = excepthook
 
 
-import wmqtt
-wmqtt.Wmqtt()
-
-
 class Log():
     def __init__(self):
         pass
