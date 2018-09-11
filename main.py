@@ -1,6 +1,6 @@
 import winclude as w
 from gpiozero import *
-from wmqtt import Wmqtt as Talk, AwayInfo
+from wmqtt import Wmqtt as LabNetwork, AwayInfo
 
 Device.pin_factory = w.wfactory.WFactory()
 

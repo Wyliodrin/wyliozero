@@ -13,7 +13,31 @@ def getID():
         return False
 
 localdb = {}
+localfn = {'update':{}, 'change':{}}
 boardId = None
+
+
+def putMessageInDb(topic, msg):
+    if not localdb.has_key(topic):
+
+        if localfn['change'].has_key(topic):
+            localfn['change'][topic](msg)
+    else:
+        old = localdb[topic]
+        if old != msg:
+
+            if localfn['change'].has_key(topic):
+                localfn['change'][topic](msg)
+
+
+    if localfn['update'].has_key(topic):
+        localfn['update'][topic](msg)
+
+    
+    localdb[topic] = msg
+    
+
+
 
 class ArgumentError(Exception):
     def __init__(self, message):
@@ -25,7 +49,7 @@ class Wmqtt:
     def __init__(self):
         self.initVars()
         self.connect()
-        #self.test()
+        self.subscribePrivateAll()
 
     def initVars(self):
         global boardId
@@ -62,8 +86,8 @@ class Wmqtt:
         message = loaded['m']
         t = loaded['t']
 
+        putMessageInDb(messagejson.topic, message)
 
-        localdb[messagejson.topic] = message
         print("message received " ,message)
         print("message time " ,t)
         print("message sender " ,s)
@@ -81,6 +105,12 @@ class Wmqtt:
 
         self.client.subscribe("broadcast")
 
+    def subscribePrivateAll(self):
+        self.client.subscribe('in' + '/' + self.boardId + '/' + '+')
+
+    def unsubscribePrivateAll(self):
+        self.client.unsubscribe('in' + '/' + self.boardId + '/' + '+')
+
     def subscribePrivate(self, topic='default'):
         self.client.subscribe('in' + '/' + self.boardId + '/' + topic)
 
@@ -92,7 +122,11 @@ class Wmqtt:
 
     
 
+    def subscribePublicAll(self):
+        self.client.subscribe('out' + '/' + '#')
 
+    def unsubscribePublicAll(self):
+        self.client.unsubscribe('out' + '/' + '#')
 
     def subscribePublic(self, boardId, topic='default'):
         self.client.subscribe('out' + '/' + boardId + '/' + topic)
@@ -128,6 +162,8 @@ class Wmqtt:
 
 class AwayInfo:
     def __init__(self, broadcast = False, public = False, private = False, who = None, topic = 'default' ):
+        self._when_updated = None
+        self._when_changed = None
         if broadcast == True:
             pass
         else:
@@ -145,10 +181,32 @@ class AwayInfo:
                 raise ArgumentError('Object AwayInfo must have either public = True or private = True, but not both at the same time')
 
     @property
-    def receive(self):
+    def values(self):
         while True:
             if localdb.has_key(self.path):
                 yield localdb[self.path]
+
+    @property
+    def when_updated(self):
+        return self._when_updated
+
+    @property.setter
+    def when_updated(self, value):
+        self._when_updated = value
+        localfn['update'][self.path] = value
+
+    @property
+    def when_changed(self):
+        return self._when_changed
+
+    @property.setter
+    def when_changed(self, value):
+        self._when_changed = value
+        localfn['change'][self.path] = value
+
+            
+
+        
 
 
 if __name__ == "__main__":
