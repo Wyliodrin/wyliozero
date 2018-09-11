@@ -50,6 +50,7 @@ class Wmqtt:
         self.initVars()
         self.connect()
         self.subscribePrivateAll()
+        self.subscribePublicAll()
 
     def initVars(self):
         global boardId
