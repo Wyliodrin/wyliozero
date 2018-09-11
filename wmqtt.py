@@ -190,7 +190,7 @@ class AwayInfo:
     def when_updated(self):
         return self._when_updated
 
-    @property.setter
+    @when_updated.setter
     def when_updated(self, value):
         self._when_updated = value
         localfn['update'][self.path] = value
@@ -199,7 +199,7 @@ class AwayInfo:
     def when_changed(self):
         return self._when_changed
 
-    @property.setter
+    @when_changed.setter
     def when_changed(self, value):
         self._when_changed = value
         localfn['change'][self.path] = value
