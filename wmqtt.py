@@ -160,7 +160,7 @@ class Wmqtt:
         self.client.loop_stop() """
 
 
-class AwayInfo:
+class AwayInfo(object):
     def __init__(self, broadcast = False, public = False, private = False, who = None, topic = 'default' ):
         self._when_updated = None
         self._when_changed = None
