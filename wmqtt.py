@@ -63,13 +63,13 @@ class Wmqtt:
         t = loaded['t']
 
 
-        localdb[t] = message
+        localdb[messagejson.topic] = message
         print("message received " ,message)
         print("message time " ,t)
         print("message sender " ,s)
-        print("message topic", message.topic)
-        print("message qos", message.qos)
-        print("message retain flag", message.retain)
+        print("message topic", messagejson.topic)
+        print("message qos", messagejson.qos)
+        print("message retain flag", messagejson.retain)
 
 
     def connect(self):
@@ -148,7 +148,7 @@ class AwayInfo:
     def receive(self):
         while True:
             if localdb.has_key(self.path):
-                yield self.path
+                yield localdb[self.path]
 
 
 if __name__ == "__main__":
