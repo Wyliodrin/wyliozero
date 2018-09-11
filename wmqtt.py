@@ -10,7 +10,7 @@ def getID():
     if len(x) > 0:
         return x[0].split(':')[1].strip().lstrip('0')
     else:
-        return False
+        return None
 
 localdb = {}
 localfn = {'update':{}, 'change':{}}
@@ -45,7 +45,22 @@ class ArgumentError(Exception):
         # Call the base class constructor with the parameters it needs
         super(ArgumentError, self).__init__(message)
 
-class Wmqtt:
+class EnvironmentError(Exception):
+    def __init__(self, message):
+
+        # Call the base class constructor with the parameters it needs
+        super(EnvironmentError, self).__init__(message)
+
+
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+class Wmqtt(object):
+    __metaclass__ = Singleton
     def __init__(self):
         self.initVars()
         self.connect()
@@ -58,15 +73,15 @@ class Wmqtt:
             self.boardId = env['BOARD_ID']
         else:
             self.boardId = getID()
-            if self.boardId == False:
-                print "Error finding board ID"
+            if self.boardId == None:
+                raise EnvironmentError("Error finding environment variable BOARD_ID")
 
         boardId = self.boardId
 
         if env.has_key('BROKER_ADDRESS'):
             self.brokerAddress = env['BROKER_ADDRESS']
         else:
-            print "Error finding MQTT broker address"
+            raise EnvironmentError("Error finding MQTT broker address from environment variable BROKER_ADDRESS")
 
         print 'Board ID', self.boardId
         print 'Broker address', self.brokerAddress
@@ -77,24 +92,13 @@ class Wmqtt:
 
 
     def on_message(self, client, userdata, messagejson):
-        print "am mesaj"
         loaded = json.loads(str(messagejson.payload.decode('utf-8')))
 
-
-        print loaded
-
-        s = loaded['s']
+        #s = loaded['s']
         message = loaded['m']
-        t = loaded['t']
+        #t = loaded['t']
 
         putMessageInDb(messagejson.topic, message)
-
-        print("message received " ,message)
-        print("message time " ,t)
-        print("message sender " ,s)
-        print("message topic", messagejson.topic)
-        print("message qos", messagejson.qos)
-        print("message retain flag", messagejson.retain)
 
 
     def connect(self):
@@ -142,23 +146,6 @@ class Wmqtt:
 
     def sendBroadcast(self, message):
         self.client.publish('broadcast', message)
-        
-
-
-
-"""     def test(self):
-        if self.boardId == 'xx':
-            self.subscribePrivate()
-            self.subscribePublic('yy')
-            
-        elif self.boardId == 'yy':
-            self.sendPrivate('xx', 'gigel')
-            self.sendPublic(0)
-        else:
-            print "nu eok"
-        
-        time.sleep(10)
-        self.client.loop_stop() """
 
 
 class AwayInfo(object):
@@ -166,7 +153,7 @@ class AwayInfo(object):
         self._when_updated = None
         self._when_changed = None
         if broadcast == True:
-            pass
+            self.path = 'broadcast'
         else:
             if public == False and private == False:
                 raise ArgumentError('Object AwayInfo must have either public = True or private = True, but not both at the same time')
@@ -205,10 +192,3 @@ class AwayInfo(object):
         self._when_changed = value
         localfn['change'][self.path] = value
 
-            
-
-        
-
-
-if __name__ == "__main__":
-    w = Wmqtt()
