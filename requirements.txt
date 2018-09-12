@@ -1,0 +1,7 @@
+# This is an implicit value, here for clarity
+--index-url https://pypi.python.org/simple/
+
+paho-mqtt==1.4.0
+pyserial==3.4
+gpiozero==1.4.1
+PyMata==2.18

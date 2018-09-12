@@ -13,7 +13,7 @@ serialTry = ["/dev/ttyS0", "/dev/ttyAMA0"]
 ard = None
 for tries in serialTry:
     try:
-        ard = PyMata(tries, verbose=True)
+        ard = PyMata(tries, verbose=False)
     except SerialException:
         pass
     else:
