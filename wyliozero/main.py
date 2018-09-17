@@ -137,7 +137,7 @@ def digitalRead(pin):
         else: return 0
 
     elif w.isA(pin):
-        w.log.error('Analog pin {0} cannot be used for analogRead'.format(pin))
+        w.log.error('Analog pin {0} cannot be used for digitalRead'.format(pin))
 
     else:
         w.log.error(pin, 'arg')
@@ -170,7 +170,7 @@ def analogWrite(pin, value):
                 w.log.error('Argument value "{0}" must be a number between 0 and 255'.format(value))
             
         else:
-            w.log.error('Pin {0} must be set as OUTPUT for analogRead'.format(pin))
+            w.log.error('Pin {0} must be set as OUTPUT for analogWrite'.format(pin))
 
     elif w.isD(pin) or w.isAdig(pin) or w.isR(pin) or w.isA(pin):
         w.log.error('Pin {0} cannot be used for analogWrite'.format(pin))
