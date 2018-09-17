@@ -1,9 +1,14 @@
 import winclude as w
 from gpiozero import *
 from wmqtt import Wmqtt as LabNetwork, AwayInfo
+from wlcd import LabLCD
 
 Device.pin_factory = w.wfactory.WFactory()
 
+def pause():
+    print "Press Enter to end the program"
+    raw_input()
+    w._exit(0)
 
 
 for eachPin in w.pinsAll:
