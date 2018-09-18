@@ -333,8 +333,8 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="wn+8KO3c_?4d:_oe(8.J">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
       </block>
     </value>
   </block><block type="factory_base" id="8]MtAlV5),YfTaKqq;l_" deletable="false" movable="false" x="10" y="10">
@@ -367,8 +367,8 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="0;uVfDg#2*.a^NEOD78C">
-        <mutation colour="#6da55b"></mutation>
-        <field name="HUE">105</field>
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
       </block>
     </value>
   </block><block type="factory_base" id="{|DY{D=@?gdgwM3gqS4$" deletable="false" movable="false" x="10" y="10">
@@ -419,93 +419,8 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="wMZc@lIi3@GKm+C{Hroo">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
-      </block>
-    </value>
-  </block><block type="factory_base" id="^%5[Z[Cn(y62So76+i2?" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="BOTH"></mutation>
-    <field name="NAME">led on</field>
-    <field name="INLINE">AUTO</field>
-    <field name="CONNECTIONS">BOTH</field>
-    <statement name="INPUTS">
-      <block type="input_value" id="aR:^Q|:4jli^TpQW9Y#*">
-        <field name="INPUTNAME">NAME</field>
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="UK4I~_Nz@$doqXxP!-bL">
-            <field name="TEXT">Turn on LED</field>
-          </block>
-        </statement>
-        <value name="TYPE">
-          <shadow type="type_null" id="n7))HZatwipYA*%?nI+("></shadow>
-          <block type="type_other" id="kwQSqv{|-rNpf%c,3{A#">
-            <field name="TYPE">LED</field>
-          </block>
-        </value>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="h)1MQr*{cb2z5JeIU8RI" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="HG1+OHC9H%lgKb`_oU,t" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="TOPTYPE">
-      <shadow type="type_null" id="G,RcYh%%R{Fr6V:JNNw-"></shadow>
-    </value>
-    <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="T5k@$;dcTro@H%#5brU)"></shadow>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="{UH!3hl],qzPZK3R*:!I">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
-      </block>
-    </value>
-  </block><block type="factory_base" id="mqHd#73xXclQOGNT=nRA" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="TOP"></mutation>
-    <field name="NAME">led_pulse_infinite</field>
-    <field name="INLINE">INT</field>
-    <field name="CONNECTIONS">TOP</field>
-    <statement name="INPUTS">
-      <block type="input_value" id="J]0a@=T1xk?p#=IqLpD?">
-        <field name="INPUTNAME">led</field>
-        <field name="ALIGN">CENTRE</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="PLIjP}u=rqYB!ClWS``g">
-            <field name="TEXT">Pulse LED</field>
-          </block>
-        </statement>
-        <value name="TYPE">
-          <shadow type="type_null" id="_vL4;d6G!3VF,`JoYT$/"></shadow>
-          <block type="type_other" id="lP?|3[QV%5lSnJ:|/5QS">
-            <field name="TYPE">LED</field>
-          </block>
-        </value>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="A`~xDY*vMf8F!Om5Jmis" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="2~[:}1M6ZXbB5{^-`X+/" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="TOPTYPE">
-      <shadow type="type_null" id="#6MZ};sAOHX%f`E/-j,q"></shadow>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id=".Pb,5A+:N^aKoJg5s,FE">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
       </block>
     </value>
   </block><block type="factory_base" id="9ukDYGGBNtZD^ZDp6=aA" deletable="false" movable="false" x="10" y="10">
@@ -556,77 +471,8 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="+:}2jN7To1#6MP)J%pEK">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
-      </block>
-    </value>
-  </block><block type="factory_base" id="#ZJ{9:x#_8loT(%:^}P#" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="BOTH"></mutation>
-    <field name="NAME">pwm_led_light</field>
-    <field name="INLINE">INT</field>
-    <field name="CONNECTIONS">BOTH</field>
-    <statement name="INPUTS">
-      <block type="input_value" id="r5^tmy`Bx?h$4oVFE1-z">
-        <field name="INPUTNAME">pwm_led</field>
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="DAf_EPY}iQAFR}$t5mKw">
-            <field name="TEXT">Turn on PWM LED</field>
-          </block>
-        </statement>
-        <value name="TYPE">
-          <shadow type="type_null" id="/p4@!8c9m=?b}Hfx2f:o"></shadow>
-          <block type="type_other" id=",t`9Y19yAcv,3Y58w,/;">
-            <field name="TYPE">PWM_LED</field>
-          </block>
-        </value>
-        <next>
-          <block type="input_value" id="+S*g6CJQ7brvcwa)yeD3">
-            <field name="INPUTNAME">value</field>
-            <field name="ALIGN">LEFT</field>
-            <statement name="FIELDS">
-              <block type="field_static" id="g9b*c9}N6yg!l]dG%Qxd">
-                <field name="TEXT">with value</field>
-              </block>
-            </statement>
-            <value name="TYPE">
-              <shadow type="type_null" id="+tzOo1[2f8_hr|932y4l"></shadow>
-              <block type="type_number" id="OPkx~ITF8JeFl/6RVQdw"></block>
-            </value>
-            <next>
-              <block type="input_dummy" id="rQa3`8i2[7I]qtQ[jz5$">
-                <field name="ALIGN">LEFT</field>
-                <statement name="FIELDS">
-                  <block type="field_static" id="4M2LCU]yi.kJ!ToLuVwh">
-                    <field name="TEXT">(0 to 1).</field>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="{?7dfkD2C96GrvXT)*5H" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="sG~wEO/Ejp/ry@kX-tmR" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="TOPTYPE">
-      <shadow type="type_null" id="|gAlYl|Rxk/lHV2r%:A3"></shadow>
-    </value>
-    <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="rTR7:;0tr5O2XB?q`0NC"></shadow>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="J^Yu}Ja7^})fUZHDqf%X">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
       </block>
     </value>
   </block><block type="factory_base" id="x)D^KZP;Tcg2kxiBPkLT" deletable="false" movable="false" x="10" y="10">
@@ -640,7 +486,7 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="C-C%(z5AB[HmPZqae!77">
-            <field name="TEXT">button</field>
+            <field name="TEXT">Button</field>
           </block>
         </statement>
         <value name="TYPE">
@@ -677,8 +523,8 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="Hx0/r+-MrjxoG|TQP9gy">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
       </block>
     </value>
   </block><block type="factory_base" id="vWf9%F`4fGmOI0E|Ah;," deletable="false" movable="false" x="10" y="10">
@@ -706,7 +552,7 @@
             <field name="ALIGN">LEFT</field>
             <statement name="FIELDS">
               <block type="field_static" id="J:L/:v]7OBU[J$o;59Ju">
-                <field name="TEXT">is pressed.</field>
+                <field name="TEXT">is pressed</field>
               </block>
             </statement>
           </block>
@@ -729,8 +575,644 @@
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="yJE%OPqkpa5Q`Oz_3x@$">
-        <mutation colour="#5b67a5"></mutation>
-        <field name="HUE">230</field>
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="mqHd#73xXclQOGNT=nRA" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="TOP"></mutation>
+    <field name="NAME">led_blink</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">TOP</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="J]0a@=T1xk?p#=IqLpD?">
+        <field name="INPUTNAME">led</field>
+        <field name="ALIGN">CENTRE</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="PLIjP}u=rqYB!ClWS``g">
+            <field name="TEXT">Blink</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="_vL4;d6G!3VF,`JoYT$/"></shadow>
+          <block type="type_group" id="hT_Gn4h[F?X1F[BT~vxc">
+            <mutation types="3"></mutation>
+            <value name="TYPE0">
+              <block type="type_other" id="lP?|3[QV%5lSnJ:|/5QS">
+                <field name="TYPE">PWM_LED</field>
+              </block>
+            </value>
+            <value name="TYPE1">
+              <block type="type_other" id="rmsx@)eu!mgU9BSY3L;(">
+                <field name="TYPE">LED</field>
+              </block>
+            </value>
+            <value name="TYPE2">
+              <block type="type_other" id="`+AwU1CLfybkMF`3{QwB">
+                <field name="TYPE">traffic</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="A`~xDY*vMf8F!Om5Jmis" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="2~[:}1M6ZXbB5{^-`X+/" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="#6MZ};sAOHX%f`E/-j,q"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=".Pb,5A+:N^aKoJg5s,FE">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="#ZJ{9:x#_8loT(%:^}P#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">PWM ON</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="r5^tmy`Bx?h$4oVFE1-z">
+        <field name="INPUTNAME">pwm_led</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="DAf_EPY}iQAFR}$t5mKw">
+            <field name="TEXT">Turn on PWM LED</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="/p4@!8c9m=?b}Hfx2f:o"></shadow>
+          <block type="type_other" id=",t`9Y19yAcv,3Y58w,/;">
+            <field name="TYPE">PWM_LED</field>
+          </block>
+        </value>
+        <next>
+          <block type="input_value" id="+S*g6CJQ7brvcwa)yeD3">
+            <field name="INPUTNAME">value</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="g9b*c9}N6yg!l]dG%Qxd">
+                <field name="TEXT">with value</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="+tzOo1[2f8_hr|932y4l"></shadow>
+              <block type="type_number" id="OPkx~ITF8JeFl/6RVQdw"></block>
+            </value>
+            <next>
+              <block type="input_dummy" id="rQa3`8i2[7I]qtQ[jz5$">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="4M2LCU]yi.kJ!ToLuVwh">
+                    <field name="TEXT">(between 0 and 1)</field>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="{?7dfkD2C96GrvXT)*5H" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="sG~wEO/Ejp/ry@kX-tmR" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="|gAlYl|Rxk/lHV2r%:A3"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="rTR7:;0tr5O2XB?q`0NC"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="J^Yu}Ja7^})fUZHDqf%X">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="vWf9%F`4fGmOI0E|Ah;," deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">button_wait_for_press</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="uZ4%EI;8:]TC?:EPSToQ">
+        <field name="INPUTNAME">button</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="^+p,T1pi:@CY,~gx,Vz,">
+            <field name="TEXT">Wait until button</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="c5586K(NvMulcZm4pF8y"></shadow>
+          <block type="type_other" id="Nxr)OM}5`Cd`%r,n;C*J">
+            <field name="TYPE">button</field>
+          </block>
+        </value>
+        <next>
+          <block type="input_dummy" id="qJ](;v9QenMU_4s2b49U">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="J:L/:v]7OBU[J$o;59Ju">
+                <field name="TEXT">is pressed</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="aR=Q+I~Wy;q0l`aY[B9G" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=":=b`ZiSIGiy[[^+29a)7" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="*.;9_Zh6X:)P42wW573t"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="ODN/N,deH,!Kf,ym3|74"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="yJE%OPqkpa5Q`Oz_3x@$">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="~cM!Q(yWepBx.YdvL(yp" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="TOP"></mutation>
+    <field name="NAME">pause</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">TOP</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="Y=S3}crVQ~r).L}w-SmF">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="ggOF_nX.s#{7EEU|.:DS">
+            <field name="TEXT">Pause</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="QGJ#OyX?T.h}ge]cD/{!" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="mRQ]zE[1$E%5|VV`RfZ7" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="ombbs+w2Xij^A*2:iOIa"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="-U]dTl!yHCW;xJUOrwu$">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="{|DY{D=@?gdgwM3gqS4$" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">trafficlight</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="qKj?:8ZF4_vRd,[BvH6q">
+        <field name="INPUTNAME">red</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="zG(N0CN)EEu`e;%lO@T_">
+            <field name="TEXT">Traffic Lights</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="+kvjZVa^su5GX(o2wBI+"></shadow>
+          <block type="type_group" id="m.|8`^)!FN1ey[)av10[">
+            <mutation types="2"></mutation>
+            <value name="TYPE0">
+              <block type="type_string" id="=sYgRF)3z#8wg2xeGGeP"></block>
+            </value>
+            <value name="TYPE1">
+              <block type="type_other" id="vy?3F#@dLF,E/,EbT()t">
+                <field name="TYPE">pinNumber</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="input_value" id="s5cPNSY(AGuPwB?WcQ*1">
+            <field name="INPUTNAME">yellow</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="2;Ro)AJKsOQBnQ=N?@S:"></shadow>
+              <block type="type_group" id="As5pYVB[WkwjsP*n.ZMJ">
+                <mutation types="2"></mutation>
+                <value name="TYPE0">
+                  <block type="type_string" id="AABntm$1h?Jz[U1kL.[t"></block>
+                </value>
+                <value name="TYPE1">
+                  <block type="type_other" id="4Vmn4WA`x5,wH6b_STMv">
+                    <field name="TYPE">pinNumber</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="input_value" id=")`aM@*CLOCO^ynAExqM+">
+                <field name="INPUTNAME">green</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                  <shadow type="type_null" id="KpH9hZ|c0$8OCEIu!Y)$"></shadow>
+                  <block type="type_group" id="[)j|!R?eVZRLjcd/7otK">
+                    <mutation types="2"></mutation>
+                    <value name="TYPE0">
+                      <block type="type_string" id="bkTi}0UHjtZ/h.ucb:7:"></block>
+                    </value>
+                    <value name="TYPE1">
+                      <block type="type_other" id="H7FFMbv|7=FL?9qOdD]J">
+                        <field name="TYPE">pinNumber</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="vBsrldtxo0u*}IYY0z~1" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="{q{Utq(/=#ff#$DKj,[|" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="1jRe(,FK|_G)4}lNF-T+"></shadow>
+      <block type="type_other" id="-M?cak#mlq)=D;(?Hb~l">
+        <field name="TYPE">traffic</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="wMZc@lIi3@GKm+C{Hroo">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="^%5[Z[Cn(y62So76+i2?" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">turn_on</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="aR:^Q|:4jli^TpQW9Y#*">
+        <field name="INPUTNAME">NAME</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="UK4I~_Nz@$doqXxP!-bL">
+            <field name="TEXT">Turn on</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="n7))HZatwipYA*%?nI+("></shadow>
+          <block type="type_group" id=":U(5.@T}D-`clA|49@r4">
+            <mutation types="3"></mutation>
+            <value name="TYPE0">
+              <block type="type_other" id="W6x(){Me%ce6Wi{V#6uR">
+                <field name="TYPE">PWM_LED</field>
+              </block>
+            </value>
+            <value name="TYPE1">
+              <block type="type_other" id="kwQSqv{|-rNpf%c,3{A#">
+                <field name="TYPE">LED</field>
+              </block>
+            </value>
+            <value name="TYPE2">
+              <block type="type_other" id="8r80N1?yu]tJueM{g_4}">
+                <field name="TYPE">traffic</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="h)1MQr*{cb2z5JeIU8RI" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="HG1+OHC9H%lgKb`_oU,t" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="G,RcYh%%R{Fr6V:JNNw-"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="T5k@$;dcTro@H%#5brU)"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="{UH!3hl],qzPZK3R*:!I">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="hzkZi-/@f9vrCLYgjMy?" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">turn_off</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="Ec[W$E=khX6_c8%4K^e9">
+        <field name="INPUTNAME">NAME</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="c)W|5[hS.H[gKkkD~Qz(">
+            <field name="TEXT">Turn off</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="]FyoM|G+|E!0=h1^V}]$"></shadow>
+          <block type="type_group" id="!|249Au2#q:gznfu6^{B">
+            <mutation types="3"></mutation>
+            <value name="TYPE0">
+              <block type="type_other" id="5S5^r)o~|OK?9p]Ftk;6">
+                <field name="TYPE">PWM_LED</field>
+              </block>
+            </value>
+            <value name="TYPE1">
+              <block type="type_other" id="P{fXD4U*]PMhs*LwU-k9">
+                <field name="TYPE">LED</field>
+              </block>
+            </value>
+            <value name="TYPE2">
+              <block type="type_other" id="X!6O@Xy*6X=O9]~F-Ehr">
+                <field name="TYPE">traffic</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="pe$/_4v|^ypZ4ZvU{[(J" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="9ZhEenk[khSL8E26J{25" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="IvdsM;y6xj*x[4Uh1m@z"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="y5mg/cOM%c%4g$=Nv$58"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="vPv%uz=x!s:xR}MMo4l~">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="=0r|vN6MN;_(J2UOj=P/" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">traffic_light_on</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=4+)P/7!L2SX=fPY}`%f">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="Hl8I*-A:yNh(shCi_eUX">
+            <field name="TEXT">Turn on</field>
+            <next>
+              <block type="field_dropdown" id="qE@;Fq{#*~4}_3LgNN0q">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">light</field>
+                <field name="USER0">red</field>
+                <field name="CPU0">red</field>
+                <field name="USER1">yellow</field>
+                <field name="CPU1">yellow</field>
+                <field name="USER2">green</field>
+                <field name="CPU2">green</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id=":8j/R%4KtktR+i?H.hig">
+            <field name="INPUTNAME">NAME</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="URlu=5u}J+ORVzS:s{,{">
+                <field name="TEXT">for Traffic Light</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="M-4%V;,I}wq6}x0XKgt*"></shadow>
+              <block type="type_other" id="XmXd{#;OXx:TNGk7)E]6">
+                <field name="TYPE">traffic</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="5`5CIUOAqCHx4g[(Pe4t" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="D(zS*#}s2?*-83#v|Z-Q" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="QL53f0C0$J#Te?-V:Kk="></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="wT!XP0/42g[I-v0Y3:p-"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="gSDTTr8l9mV*ESd(KZ6Q">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="#ZJ{9:x#_8loT(%:^}P#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">PWM PULSE</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="r5^tmy`Bx?h$4oVFE1-z">
+        <field name="INPUTNAME">pwm_led</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="DAf_EPY}iQAFR}$t5mKw">
+            <field name="TEXT">Pulse PWM LED</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="/p4@!8c9m=?b}Hfx2f:o"></shadow>
+          <block type="type_other" id=",t`9Y19yAcv,3Y58w,/;">
+            <field name="TYPE">PWM_LED</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="{?7dfkD2C96GrvXT)*5H" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="sG~wEO/Ejp/ry@kX-tmR" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="|gAlYl|Rxk/lHV2r%:A3"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="rTR7:;0tr5O2XB?q`0NC"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="J^Yu}Ja7^})fUZHDqf%X">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="=0r|vN6MN;_(J2UOj=P/" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">traffic_light_off</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=4+)P/7!L2SX=fPY}`%f">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="Hl8I*-A:yNh(shCi_eUX">
+            <field name="TEXT">Turn off</field>
+            <next>
+              <block type="field_dropdown" id="qE@;Fq{#*~4}_3LgNN0q">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">light</field>
+                <field name="USER0">red</field>
+                <field name="CPU0">red</field>
+                <field name="USER1">yellow</field>
+                <field name="CPU1">yellow</field>
+                <field name="USER2">green</field>
+                <field name="CPU2">green</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id=":8j/R%4KtktR+i?H.hig">
+            <field name="INPUTNAME">NAME</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="URlu=5u}J+ORVzS:s{,{">
+                <field name="TEXT">for Traffic Light</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="M-4%V;,I}wq6}x0XKgt*"></shadow>
+              <block type="type_other" id="XmXd{#;OXx:TNGk7)E]6">
+                <field name="TYPE">traffic</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="5`5CIUOAqCHx4g[(Pe4t" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="D(zS*#}s2?*-83#v|Z-Q" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="QL53f0C0$J#Te?-V:Kk="></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="wT!XP0/42g[I-v0Y3:p-"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="gSDTTr8l9mV*ESd(KZ6Q">
+        <mutation colour="#6da55b"></mutation>
+        <field name="HUE">105</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="8wM#r4WaxQz75PvzK%aW" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">Start LabNetwork</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="78hQo+sgdyO1bm)Q6ERC">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="3M91f)y(}aD;`WK8SuV$">
+            <field name="TEXT">Start LabNetwork</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="2jd/zb#j!~ODB6yE3z3z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="K|Ll`xyvU_1rBx#H{qUg" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="!B!h:`rXBgjF+yo4,Zfv"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="HXSgGngfF5w7zxi4iB=D"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="Qm77urp$-_L=-l!ixyck">
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
       </block>
     </value>
   </block></xml>
