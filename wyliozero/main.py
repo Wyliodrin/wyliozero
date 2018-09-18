@@ -9,6 +9,24 @@ Device.pin_factory = w.wfactory.WFactory()
 for eachPin in w.pinsAll:
     globals()[eachPin] = eachPin
 
+def humidityRead(pin):
+    if w.isR(pin):
+        x, y = w.DHT_read_retry(11,w.p(pin))
+        return x
+    elif w.isD(pin) or w.isA(pin) or w.isAdig(pin):
+        w.log.error('Pin {0} cannot be used to read humidity from it'.format(pin))
+    else:
+        w.log.error(pin, 'arg')
+
+
+def temperatureRead(pin):
+    if w.isR(pin):
+        x, y = w.DHT_read_retry(11,w.p(pin))
+        return y
+    elif w.isD(pin) or w.isA(pin) or w.isAdig(pin):
+        w.log.error('Pin {0} cannot be used to read temperature from it'.format(pin))
+    else:
+        w.log.error(pin, 'arg')
 
 
 def pinMode(pin, value):
