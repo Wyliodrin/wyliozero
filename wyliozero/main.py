@@ -1,9 +1,14 @@
 import winclude as w
 from gpiozero import *
 from wmqtt import Wmqtt as LabNetwork, AwayInfo
+from wlcd import LabLCD
 
 Device.pin_factory = w.wfactory.WFactory()
 
+def pause():
+    print "Press Enter to end the program"
+    raw_input()
+    w._exit(0)
 
 
 for eachPin in w.pinsAll:
@@ -28,6 +33,11 @@ def temperatureRead(pin):
     else:
         w.log.error(pin, 'arg')
 
+INPUT = 'i'
+OUTPUT = 'o'
+
+HIGH = 1
+LOW = 0
 
 def pinMode(pin, value):
     if w.isR(pin):
@@ -86,11 +96,11 @@ def digitalWrite(pin, value):
     if w.isR(pin):
         if w.isPinOutput(pin):
             if w.isLow(value):
-                x = w.rpi.OutputDevice(w.p(pin), factory=w.defaultFactory)
+                x = w.rpi.OutputDevice(w.p(pin), pin_factory=w.defaultFactory)
                 x.off()
                 x.close()
             elif w.isHigh(value):
-                x = w.rpi.OutputDevice(w.p(pin), factory=w.defaultFactory)
+                x = w.rpi.OutputDevice(w.p(pin), pin_factory=w.defaultFactory)
                 x.on()
                 x.close()
             else:
@@ -131,13 +141,13 @@ def digitalWrite(pin, value):
 def digitalRead(pin):
     if w.isR(pin):
         if w.isPinInput(pin):
-            x = w.rpi.InputDevice(w.p(pin), False, factory=w.defaultFactory)
+            x = w.rpi.InputDevice(w.p(pin), False, pin_factory=w.defaultFactory)
             v = x.value
             x.close()
             if v: return 1
             else: return 0
         elif w.isPinPullupInput(pin):
-            x = w.rpi.InputDevice(w.p(pin), True, factory=w.defaultFactory)
+            x = w.rpi.InputDevice(w.p(pin), True, pin_factory=w.defaultFactory)
             v = x.value
             x.close()
             if v: return 1
@@ -151,7 +161,7 @@ def digitalRead(pin):
         else: return 0
 
     elif w.isA(pin):
-        w.log.error('Analog pin {0} cannot be used for analogRead'.format(pin))
+        w.log.error('Analog pin {0} cannot be used for digitalRead'.format(pin))
 
     else:
         w.log.error(pin, 'arg')
@@ -184,7 +194,7 @@ def analogWrite(pin, value):
                 w.log.error('Argument value "{0}" must be a number between 0 and 255'.format(value))
             
         else:
-            w.log.error('Pin {0} must be set as OUTPUT for analogRead'.format(pin))
+            w.log.error('Pin {0} must be set as OUTPUT for analogWrite'.format(pin))
 
     elif w.isD(pin) or w.isAdig(pin) or w.isR(pin) or w.isA(pin):
         w.log.error('Pin {0} cannot be used for analogWrite'.format(pin))

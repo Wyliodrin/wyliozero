@@ -1,6 +1,7 @@
 import gpiozero as rpi
 from PyMata.pymata import PyMata
 from Adafruit_DHT import read_retry as DHT_read_retry
+from os import _exit
 
 import wfactory
 from gpiozero.pins.rpigpio import RPiGPIOFactory
