@@ -1,2 +1,2 @@
 # wyliozero
-Wyliodrin Pi Zero
+Wyliodrin Pi Zero is a library for Wyliodrin Lab
