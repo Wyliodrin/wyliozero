@@ -5,3 +5,5 @@ paho-mqtt==1.4.0
 pyserial==3.4
 gpiozero==1.4.1
 PyMata==2.18
+Adafruit_DHT==1.3.4
+Adafruit_CharLCD==1.1.1
