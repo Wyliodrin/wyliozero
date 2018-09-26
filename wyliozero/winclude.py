@@ -30,7 +30,7 @@ def excepthook(type, value, traceback):
     sys.stderr.write(str(value) + '\n')
     sys.stderr.flush()
 
-sys.excepthook = excepthook
+#sys.excepthook = excepthook
 
 
 class Log():
@@ -53,7 +53,9 @@ pins = {
     'R':['R4','R17','R27','R22','R10','R9','R11','R18','R23','R8','R7'],
     'D':['D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13'],
     'A':['A0','A1','A2','A3','A4','A5','A6'],
-    'Adig':['D14','D15','D16','D17','D18','D19','D20']
+    'Adig':['D14','D15','D16','D17','D18','D19','D20'],
+    'Button':['R13','R19'],
+    'LED':['R20','R21']
 }
 
 pinsAll = []
@@ -61,6 +63,8 @@ pinsAll.extend(pins['R'])
 pinsAll.extend(pins['D'])
 pinsAll.extend(pins['A'])
 pinsAll.extend(pins['Adig'])
+pinsAll.extend(pins['Button'])
+pinsAll.extend(pins['LED'])
 
 
 
@@ -80,6 +84,12 @@ def isA(pin):
 
 def isAdig(pin):
     return pin in pins['Adig']
+
+def isButton(pin):
+    return (pin in pins['Button']) or (('R' + str(pin)) in pins['Button'])
+
+def isLED(pin):
+    return (pin in pins['LED']) or (('R' + str(pin)) in pins['LED'])
 
 def isLow(value):
     return value in ['0', 0, 'LOW', False]

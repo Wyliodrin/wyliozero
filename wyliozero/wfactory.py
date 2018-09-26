@@ -2,6 +2,9 @@ from gpiozero.pins.rpigpio import RPiGPIOFactory, RPiGPIOPin
 import winclude as w
 import main as mainModule
 
+def isRPI(x):
+    return w.isR(x) or w.isButton(x) or w.isLED(x)
+
 class WFactory(RPiGPIOFactory):
 
     def __init__(self):
@@ -9,7 +12,7 @@ class WFactory(RPiGPIOFactory):
         self.pin_class = WPin
 
     def _to_gpio(self, spec):
-        if w.isR(spec):
+        if isRPI(spec):
             return super(WFactory, self)._to_gpio(w.p(spec))
         elif spec in w.pinsAll:
             return spec
@@ -21,7 +24,7 @@ class WPin(RPiGPIOPin):
         #self._when_changed_lock = None
         self.wnumber = number
 
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self).__init__(factory, w.p(self.wnumber))
         elif w.isDPWM(self.wnumber):
             pass
@@ -31,39 +34,39 @@ class WPin(RPiGPIOPin):
             pass
 
     def close(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self).close()
         else:
             if w.isD(self.wnumber) and self._get_function() == 'o':
                 mainModule.digitalWrite(self.wnumber, 0)
 
     def output_with_state(self, state):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self).output_with_state(state)
         else:
             mainModule.pinMode(self.wnumber, 'o')
             mainModule.digitalWrite(self.wnumber, state)
 
     def input_with_pull(self, pull):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self).input_with_pull(pull)
         else:
             mainModule.pinMode(self.wnumber, 'p')
 
     def _get_function(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._get_function()
         else:
             return w.pinState[self.wnumber]
 
     def _set_function(self, value):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._set_function(value)
         else:
             mainModule.pinMode(self.wnumber, value)
 
     def _get_state(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._get_state()
         else:
             if (self._get_function() == 'o'):
@@ -75,7 +78,7 @@ class WPin(RPiGPIOPin):
                     return mainModule.analogRead(self.wnumber)
     
     def _set_state(self, value):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._set_state(value)
         else:
             if (self._get_function() != 'o'):
@@ -87,13 +90,13 @@ class WPin(RPiGPIOPin):
                     mainModule.analogWrite(self.wnumber, value* 255.0)
 
     def _get_pull(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._get_pull()
         else:
             return w.pinState[self.wnumber] == 'p'
 
     def _set_pull(self, value):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._set_pull(value)
         else:
             if (self._get_function() == 'o'):
@@ -106,14 +109,14 @@ class WPin(RPiGPIOPin):
 
 
     def _get_frequency(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._get_frequency()
         else:
             pass
             print "unimplemented _get_frequency"
 
     def _set_frequency(self, value):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._set_frequency(value)
         else:
             pass
@@ -126,14 +129,14 @@ class WPin(RPiGPIOPin):
         super(WPin, self)._set_bounce(value)
 
     def _get_edges(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._get_edges()
         else:
             return self._edges
             print "unimplemented _get_edges"
 
     def _set_edges(self, value):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._set_edges(value)
         else:
             f = self.when_changed
@@ -148,23 +151,21 @@ class WPin(RPiGPIOPin):
         super(WPin, self)._call_when_changed(channel)
 
     def _enable_event_detect(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._enable_event_detect()
         else:
             w.addCallback(self.wnumber, self._edges, callback=self._call_when_changed, bouncetime=self._bounce)
             print "unimplemented _enable_event_detect"
 
     def _disable_event_detect(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._disable_event_detect()
         else:
             w.removeCallback(self.wnumber)
             print "unimplemented _disable_event_detect"
 
     def _set_when_changed(self, value):
-        print "VALUE"
-        print value
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             super(WPin, self)._set_when_changed(value)
         else:
             self._when_changed = value
@@ -182,7 +183,7 @@ class WPin(RPiGPIOPin):
             print "unimplemented _set_when_changed"
     
     def _get_when_changed(self):
-        if w.isR(self.wnumber):
+        if isRPI(self.wnumber):
             return super(WPin, self)._get_when_changed()
         else:
             print "unimplemented _get_when_changed"
