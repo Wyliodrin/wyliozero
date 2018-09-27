@@ -11,7 +11,8 @@ defaultFactory = RPiGPIOFactory()
 
 
 from serial.serialutil import SerialException
-serialTry = ["/dev/ttyS0", "/dev/ttyAMA0"]
+print "Starting program..."
+serialTry = ["/dev/serial0"]
 ard = None
 for tries in serialTry:
     try:
@@ -30,7 +31,7 @@ def excepthook(type, value, traceback):
     sys.stderr.write(str(value) + '\n')
     sys.stderr.flush()
 
-#sys.excepthook = excepthook
+sys.excepthook = excepthook
 
 
 class Log():
