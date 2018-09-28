@@ -1,5 +1,5 @@
 import gpiozero as rpi
-from PyMata.pymata import PyMata
+from pymata_aio.pymata3 import PyMata3
 from Adafruit_DHT import read_retry as DHT_read_retry
 from os import _exit
 
@@ -16,7 +16,7 @@ serialTry = ["/dev/serial0"]
 ard = None
 for tries in serialTry:
     try:
-        ard = PyMata(tries, verbose=False)
+        ard = PyMata3(tries, verbose=False)
     except SerialException:
         pass
     else:

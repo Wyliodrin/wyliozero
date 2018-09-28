@@ -69,7 +69,7 @@ class Wmqtt(object):
 
     def initVars(self):
         global boardId
-        if env.has_key('BOARD_ID'):
+        # if env.has_key('BOARD_ID'):
             self.boardId = env['BOARD_ID']
         else:
             self.boardId = getID()
