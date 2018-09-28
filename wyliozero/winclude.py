@@ -1,5 +1,5 @@
 import gpiozero as rpi
-from pymata_aio.pymata3 import PyMata3
+from PyMata.pymata import PyMata
 from Adafruit_DHT import read_retry as DHT_read_retry
 from os import _exit
 
@@ -11,12 +11,12 @@ defaultFactory = RPiGPIOFactory()
 
 
 from serial.serialutil import SerialException
-print ("Starting program...")
+print "Starting program..."
 serialTry = ["/dev/serial0"]
 ard = None
 for tries in serialTry:
     try:
-        ard = PyMata3(tries, verbose=False)
+        ard = PyMata(tries, verbose=False)
     except SerialException:
         pass
     else:
@@ -46,7 +46,7 @@ class Log():
             txt = 'ERROR ' + str(s)
         raise SystemError(txt)
     def info(self, s):
-        print ('INFO ' + str(s))
+        print 'INFO ' + str(s)
 
 log = Log()
 
