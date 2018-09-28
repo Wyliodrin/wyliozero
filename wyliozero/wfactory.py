@@ -1,6 +1,6 @@
 from gpiozero.pins.rpigpio import RPiGPIOFactory, RPiGPIOPin
-import winclude as w
-import main as mainModule
+from . import winclude as w
+from . import main as mainModule
 
 def isRPI(x):
     return w.isR(x) or w.isButton(x) or w.isLED(x)
