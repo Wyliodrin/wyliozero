@@ -6,7 +6,7 @@ from wlcd import lcd as LabLCD
 Device.pin_factory = w.wfactory.WFactory()
 
 def pause():
-    print "Press Enter to end the program"
+    print ("Press Enter to end the program")
     raw_input()
     w._exit(0)
 

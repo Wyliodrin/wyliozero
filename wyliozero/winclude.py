@@ -11,7 +11,7 @@ defaultFactory = RPiGPIOFactory()
 
 
 from serial.serialutil import SerialException
-print "Starting program..."
+print ("Starting program...")
 serialTry = ["/dev/serial0"]
 ard = None
 for tries in serialTry:
@@ -46,7 +46,7 @@ class Log():
             txt = 'ERROR ' + str(s)
         raise SystemError(txt)
     def info(self, s):
-        print 'INFO ' + str(s)
+        print ('INFO ' + str(s))
 
 log = Log()
 

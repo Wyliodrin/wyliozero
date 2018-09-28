@@ -83,8 +83,8 @@ class Wmqtt(object):
         else:
             raise EnvironmentError("Error finding MQTT broker address from environment variable BROKER_ADDRESS")
 
-        print 'Board ID', self.boardId
-        print 'Broker address', self.brokerAddress
+        print ('Board ID ' + str(self.boardId))
+        print ('Broker address ' + str(self.brokerAddress))
 
     
     def form(self, message):
