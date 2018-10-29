@@ -1,7 +1,7 @@
-from . import winclude as w
-from .gpiozero import *
-from .wmqtt import Wmqtt as LabNetwork, AwayInfo
-from .wlcd import lcd as LabLCD
+import winclude as w
+from gpiozero import *
+from wmqtt import Wmqtt as LabNetwork, AwayInfo
+from wlcd import lcd as LabLCD
 
 Device.pin_factory = w.wfactory.WFactory()
 
