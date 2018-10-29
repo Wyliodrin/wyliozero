@@ -10,6 +10,16 @@ import sys
 defaultFactory = RPiGPIOFactory()
 
 
+class DHTsensor:
+    def __init__(self, pin):
+        self.pin = pin
+
+    def humidityRead(self):
+        return DHT_read_retry(11, self.pin)[0]
+
+    def temperatureRead(self):
+        return DHT_read_retry(11, self.pin)[1]
+
 from serial.serialutil import SerialException
 print "Starting program..."
 serialTry = ["/dev/serial0"]

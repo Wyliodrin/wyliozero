@@ -14,6 +14,18 @@ def pause():
 for eachPin in w.pinsAll:
     globals()[eachPin] = eachPin
 
+class DHTsensor:
+    def __init__(self, pin):
+        self.pin = pin
+        
+    def humidityRead(self):
+        return humidityRead(self.pin)
+
+    def temperatureRead(self):
+        return temperatureRead(self.pin)
+
+
+
 def humidityRead(pin):
     if w.isR(pin):
         x, y = w.DHT_read_retry(11,w.p(pin))
