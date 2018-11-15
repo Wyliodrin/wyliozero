@@ -13,28 +13,16 @@ def getID():
         return None
 
 localdb = {}
+broadcastdb = None
 localfn = {'update':{}, 'change':{}}
 boardId = None
 
 
 def putMessageInDb(topic, msg):
-    if not localdb.has_key(topic):
-
-        if localfn['change'].has_key(topic):
-            localfn['change'][topic](msg)
-    else:
-        old = localdb[topic]
-        if old != msg:
-
-            if localfn['change'].has_key(topic):
-                localfn['change'][topic](msg)
-
-
-    if localfn['update'].has_key(topic):
-        localfn['update'][topic](msg)
-
-    
-    localdb[topic] = msg
+    if (topic.split('/')[0] == 'broadcast'):
+        broadcastdb = msg
+    elif (topic.split('/') == 'in'):
+        localdb[topic.split('/')[-1]] = msg
     
 
 
@@ -64,8 +52,7 @@ class Wmqtt(object):
     def __init__(self):
         self.initVars()
         self.connect()
-        self.subscribePrivateAll()
-        self.subscribePublicAll()
+        self.subscribe()
 
     def initVars(self):
         global boardId
@@ -108,87 +95,49 @@ class Wmqtt(object):
 
         self.client.loop_start()
 
-        self.client.subscribe("broadcast")
-
-    def subscribePrivateAll(self):
+    def subscribe(self, topic='default'):
+        self.client.subscribe('broadcast')
         self.client.subscribe('in' + '/' + self.boardId + '/' + '+')
 
-    def unsubscribePrivateAll(self):
-        self.client.unsubscribe('in' + '/' + self.boardId + '/' + '+')
 
-    def subscribePrivate(self, topic='default'):
-        self.client.subscribe('in' + '/' + self.boardId + '/' + topic)
-
-    def unsubscribePrivate(self, topic='default'):
-        self.client.unsubscribe('in' + '/' + self.boardId + '/' + topic)
-
-    def sendPrivate(self, boardId, message, topic='default'):
-        self.client.publish('in' + '/' + boardId + '/' + topic, self.form(message))
-
-    
-
-    def subscribePublicAll(self):
-        self.client.subscribe('out' + '/' + '#')
-
-    def unsubscribePublicAll(self):
-        self.client.unsubscribe('out' + '/' + '#')
-
-    def subscribePublic(self, boardId, topic='default'):
-        self.client.subscribe('out' + '/' + boardId + '/' + topic)
-
-    def unsubscribePublic(self, boardId, topic='default'):
-        self.client.subscribe('out' + '/' + boardId + '/' + topic)
-
-    def sendPublic(self, message, topic='default'):
-        self.client.publish('out' + '/' + self.boardId + '/' + topic, self.form(message))
+    def sendMessage(self,msg,boardId,topic = 'default'):
+        self.client.publish('in' + '/' + boardId + '/' + topic, self.form(msg))
 
 
-
-    def sendBroadcast(self, message):
-        self.client.publish('broadcast', message)
+    def broadcastMessage(self, msg):
+        self.client.publish('broadcast', self.form(msg))
 
 
 class AwayInfo(object):
-    def __init__(self, broadcast = False, public = False, private = False, who = None, topic = 'default' ):
-        self._when_updated = None
-        self._when_changed = None
-        if broadcast == True:
-            self.path = 'broadcast'
-        else:
-            if public == False and private == False:
-                raise ArgumentError('Object AwayInfo must have either public = True or private = True, but not both at the same time')
-            elif public == False and private == True:
-                self.path = 'in' + '/' + boardId + '/' + topic
-            elif public == True and private == False:
-                if who == None:
-                    raise ArgumentError('Object AwayInfo must have "who" argument set to awayBoardId if public = True')
-                else:
-                    self.path = 'out' + '/' + who + '/' + topic
+    def __init__(self, topic = 'default'):
+        self.topic = topic
 
-            elif public == True and private == True:
-                raise ArgumentError('Object AwayInfo must have either public = True or private = True, but not both at the same time')
+    @property
+    def valuesBroadcast(self):
+        while True:
+            if broadcastdb != None:
+                yield broadcastdb
 
     @property
     def values(self):
         while True:
-            if localdb.has_key(self.path):
-                yield localdb[self.path]
+            if localdb.has_key(self.topic):
+                yield localdb[self.topic]
 
-    @property
-    def when_updated(self):
-        return self._when_updated
 
-    @when_updated.setter
-    def when_updated(self, value):
-        self._when_updated = value
-        localfn['update'][self.path] = value
+    def isBroadcastAvailable(self):
+        return broadcastdb != None
 
-    @property
-    def when_changed(self):
-        return self._when_changed
+    def isAvailable(self):
+        return localdb.has_key(self.topic)
 
-    @when_changed.setter
-    def when_changed(self, value):
-        self._when_changed = value
-        localfn['change'][self.path] = value
+    def getBroadcastAvailable(self):
+        if (self.isBroadcastAvailable()):
+            return broadcastdb
+
+    def getAvailable(self):
+        if (self.isAvailable()):
+            return localdb[self.topic]
+
+
 
