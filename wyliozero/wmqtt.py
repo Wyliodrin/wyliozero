@@ -19,9 +19,10 @@ boardId = None
 
 
 def putMessageInDb(topic, msg):
+    global broadcastdb, localdb
     if (topic.split('/')[0] == 'broadcast'):
         broadcastdb = msg
-    elif (topic.split('/') == 'in'):
+    elif (topic.split('/')[0] == 'in'):
         localdb[topic.split('/')[-1]] = msg
     
 
