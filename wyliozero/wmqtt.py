@@ -13,6 +13,7 @@ def getID():
         return None
 
 localdb = {}
+localdbperboard = {}
 broadcastdb = None
 localfn = {'update':{}, 'change':{}}
 boardId = None
@@ -24,6 +25,11 @@ def putMessageInDb(topic, msg):
         broadcastdb = msg
     elif (topic.split('/')[0] == 'in'):
         localdb[topic.split('/')[-1]] = msg
+
+        if topic.split('/')[-2] not in localdbperboard:
+            localdbperboard[topic.split('/')[-2]] = {}
+
+        localdbperboard[topic.split('/')[-2]][topic.split('/')[-1]] = msg
     
 
 
@@ -110,8 +116,9 @@ class Wmqtt(object):
 
 
 class AwayInfo(object):
-    def __init__(self, topic = 'default'):
+    def __init__(self, topic = 'default', board = None):
         self.topic = topic
+        self.board = board
 
     @property
     def valuesBroadcast(self):
@@ -121,16 +128,24 @@ class AwayInfo(object):
 
     @property
     def values(self):
-        while True:
-            if localdb.has_key(self.topic):
-                yield localdb[self.topic]
+        if self.board:
+            while True:
+                if localdbperboard.has_key(self.board) and localdbperboard[self.board].has_key(self.topic):
+                    yield localdbperboard[self.board][self.topic]
+        else:
+            while True:
+                if localdb.has_key(self.topic):
+                    yield localdb[self.topic]
 
 
     def isBroadcastAvailable(self):
         return broadcastdb != None
 
     def isAvailable(self):
-        return localdb.has_key(self.topic)
+        if self.board:
+            return localdb.has_key(self.topic)
+        else:
+            return localdbperboard.has_key(self.board) and localdbperboard[self.board].has_key(self.topic)
 
     def getBroadcastAvailable(self):
         if (self.isBroadcastAvailable()):
@@ -138,7 +153,11 @@ class AwayInfo(object):
 
     def getAvailable(self):
         if (self.isAvailable()):
-            return localdb[self.topic]
+            if self.board:
+                return localdbperboard[self.board][self.topic]
+            else:
+                return localdb[self.topic]
+            
 
 
 
