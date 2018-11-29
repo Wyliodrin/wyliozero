@@ -19,17 +19,17 @@ localfn = {'update':{}, 'change':{}}
 boardId = None
 
 
-def putMessageInDb(topic, msg):
+def putMessageInDb(topic, msg, fromwho = None):
     global broadcastdb, localdb
     if (topic.split('/')[0] == 'broadcast'):
         broadcastdb = msg
     elif (topic.split('/')[0] == 'in'):
         localdb[topic.split('/')[-1]] = msg
 
-        if topic.split('/')[-2] not in localdbperboard:
-            localdbperboard[topic.split('/')[-2]] = {}
+        if fromwho not in localdbperboard:
+            localdbperboard[fromwho] = {}
 
-        localdbperboard[topic.split('/')[-2]][topic.split('/')[-1]] = msg
+        localdbperboard[fromwho][topic.split('/')[-1]] = msg
     
 
 
@@ -92,7 +92,7 @@ class Wmqtt(object):
         message = loaded['m']
         #t = loaded['t']
 
-        putMessageInDb(messagejson.topic, message)
+        putMessageInDb(messagejson.topic, message, loaded['s'])
 
 
     def connect(self):
@@ -143,9 +143,9 @@ class AwayInfo(object):
 
     def isAvailable(self):
         if self.board:
-            return localdb.has_key(self.topic)
-        else:
             return localdbperboard.has_key(self.board) and localdbperboard[self.board].has_key(self.topic)
+        else:
+            return localdb.has_key(self.topic)
 
     def getBroadcastAvailable(self):
         if (self.isBroadcastAvailable()):
