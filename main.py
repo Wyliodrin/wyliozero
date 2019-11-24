@@ -57,11 +57,11 @@ def pinMode(pin, value):
 
     elif w.isDPWM(pin):
         if w.isOutput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PWM, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PWM)
         elif w.isInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.INPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.INPUT)
         elif w.isPullupInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PULLUP, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PULLUP)
         else:
             w.log.error(value, 'arg')
 
