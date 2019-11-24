@@ -1,9 +1,10 @@
 import gpiozero as rpi
-from PyMata.pymata import PyMata
+from pymata_aio.pymata3 import PyMata3
 from Adafruit_DHT import read_retry as DHT_read_retry
 from os import _exit
+from pymata_aio.constants import Constants
 
-import wfactory
+from . import wfactory
 from gpiozero.pins.rpigpio import RPiGPIOFactory
 import sys
 
@@ -21,12 +22,12 @@ class DHTsensor:
         return DHT_read_retry(11, self.pin)[1]
 
 from serial.serialutil import SerialException
-print "Starting program..."
+print("Starting program...")
 serialTry = ["/dev/serial0"]
 ard = None
 for tries in serialTry:
     try:
-        ard = PyMata(tries, verbose=False)
+        ard = PyMata3(com_port=tries)
     except SerialException:
         pass
     else:
@@ -38,6 +39,7 @@ if ard == None:
 
 
 def excepthook(type, value, traceback):
+    raise value
     sys.stderr.write(str(value) + '\n')
     sys.stderr.flush()
 
@@ -56,7 +58,7 @@ class Log():
             txt = 'ERROR ' + str(s)
         raise SystemError(txt)
     def info(self, s):
-        print 'INFO ' + str(s)
+        print('INFO ' + str(s))
 
 log = Log()
 
@@ -170,15 +172,15 @@ def addCallback(pin, edges, callback, bouncetime):
 
         elif isD(pin):
             if pinState[pin] == 'i':
-                ard.set_pin_mode(p(pin), ard.INPUT, ard.DIGITAL, ccb)
+                ard.set_pin_mode(p(pin), Constants.INPUT)
             elif pinState[pin] == 'p':
-                ard.set_pin_mode(p(pin), ard.PULLUP, ard.DIGITAL, ccb)
+                ard.set_pin_mode(p(pin), Constants.PULLUP)
 
         elif isA(pin):
             if pinState[pin] == 'i':
-                ard.set_pin_mode(p(pin), ard.INPUT, ard.ANALOG, ccb)
+                ard.set_pin_mode(p(pin), Constants.ANALOG)
             elif pinState[pin] == 'p':
-                ard.set_pin_mode(p(pin), ard.PULLUP, ard.ANALOG, ccb)
+                ard.set_pin_mode(p(pin), Constants.PULLUP)
 
         else:
             log.error(pin, 'arg')
@@ -205,3 +207,4 @@ def removeCallback(pin):
 
         else:
             log.error(pin, 'arg')
+

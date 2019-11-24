@@ -1,12 +1,12 @@
-import winclude as w
+from . import winclude as w
 from gpiozero import *
-from wmqtt import Wmqtt as LabNetwork, AwayInfo
-from wlcd import lcd as LabLCD
+from .wlcd import lcd as LabLCD
 
+print ('Setup pins')
 Device.pin_factory = w.wfactory.WFactory()
 
 def pause():
-    print "Press Enter to end the program"
+    print ("Press Enter to end the program")
     raw_input()
     w._exit(0)
 
@@ -57,21 +57,21 @@ def pinMode(pin, value):
 
     elif w.isDPWM(pin):
         if w.isOutput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PWM, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PWM)
         elif w.isInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.INPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.INPUT)
         elif w.isPullupInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PULLUP, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PULLUP)
         else:
             w.log.error(value, 'arg')
 
     elif w.isD(pin):
         if w.isOutput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.OUTPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.OUTPUT)
         elif w.isInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.INPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.INPUT)
         elif w.isPullupInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PULLUP, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PULLUP)
         else:
             w.log.error(value, 'arg')
 
@@ -79,19 +79,19 @@ def pinMode(pin, value):
         if w.isOutput(value):
             w.log.error('Analog pin {0} cannot be set as OUTPUT'.format(pin))
         elif w.isInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.INPUT, w.ard.ANALOG)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.ANALOG)
         elif w.isPullupInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PULLUP, w.ard.ANALOG)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PULLUP)
         else:
             w.log.error(value, 'arg')
 
     elif w.isAdig(pin):
         if w.isOutput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.OUTPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.OUTPUT)
         elif w.isInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.INPUT, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.INPUT)
         elif w.isPullupInput(value):
-            w.ard.set_pin_mode(w.p(pin), w.ard.PULLUP, w.ard.DIGITAL)
+            w.ard.set_pin_mode(w.p(pin), w.Constants.PULLUP)
         else:
             w.log.error(value, 'arg')
 
@@ -274,4 +274,5 @@ def analogWrite(pin, value):
 
     else:
         w.log.error(w.p(pin), 'arg')
+
 
